@@ -1,0 +1,393 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "simpa2k-test-data-factory"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "select_relevant_columns",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "select_relevant_columns",
+								"type": "DataFlowReference"
+							},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							}
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/select_relevant_columns')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Excel1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Data",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "API_NY.GDP.PCAP.CD_DS2_en_excel_v2_1345208.xlsx",
+						"container": "simpa2kcontainer"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "Country Name",
+						"type": "String"
+					},
+					{
+						"name": "Country Code",
+						"type": "String"
+					},
+					{
+						"name": "Indicator Name",
+						"type": "String"
+					},
+					{
+						"name": "Indicator Code",
+						"type": "String"
+					},
+					{
+						"name": "1960",
+						"type": "String"
+					},
+					{
+						"name": "1961",
+						"type": "String"
+					},
+					{
+						"name": "1962",
+						"type": "String"
+					},
+					{
+						"name": "1963",
+						"type": "String"
+					},
+					{
+						"name": "1964",
+						"type": "String"
+					},
+					{
+						"name": "1965",
+						"type": "String"
+					},
+					{
+						"name": "1966",
+						"type": "String"
+					},
+					{
+						"name": "1967",
+						"type": "String"
+					},
+					{
+						"name": "1968",
+						"type": "String"
+					},
+					{
+						"name": "1969",
+						"type": "String"
+					},
+					{
+						"name": "1970",
+						"type": "String"
+					},
+					{
+						"name": "1971",
+						"type": "String"
+					},
+					{
+						"name": "1972",
+						"type": "String"
+					},
+					{
+						"name": "1973",
+						"type": "String"
+					},
+					{
+						"name": "1974",
+						"type": "String"
+					},
+					{
+						"name": "1975",
+						"type": "String"
+					},
+					{
+						"name": "1976",
+						"type": "String"
+					},
+					{
+						"name": "1977",
+						"type": "String"
+					},
+					{
+						"name": "1978",
+						"type": "String"
+					},
+					{
+						"name": "1979",
+						"type": "String"
+					},
+					{
+						"name": "1980",
+						"type": "String"
+					},
+					{
+						"name": "1981",
+						"type": "String"
+					},
+					{
+						"name": "1982",
+						"type": "String"
+					},
+					{
+						"name": "1983",
+						"type": "String"
+					},
+					{
+						"name": "1984",
+						"type": "String"
+					},
+					{
+						"name": "1985",
+						"type": "String"
+					},
+					{
+						"name": "1986",
+						"type": "String"
+					},
+					{
+						"name": "1987",
+						"type": "String"
+					},
+					{
+						"name": "1988",
+						"type": "String"
+					},
+					{
+						"name": "1989",
+						"type": "String"
+					},
+					{
+						"name": "1990",
+						"type": "String"
+					},
+					{
+						"name": "1991",
+						"type": "String"
+					},
+					{
+						"name": "1992",
+						"type": "String"
+					},
+					{
+						"name": "1993",
+						"type": "String"
+					},
+					{
+						"name": "1994",
+						"type": "String"
+					},
+					{
+						"name": "1995",
+						"type": "String"
+					},
+					{
+						"name": "1996",
+						"type": "String"
+					},
+					{
+						"name": "1997",
+						"type": "String"
+					},
+					{
+						"name": "1998",
+						"type": "String"
+					},
+					{
+						"name": "1999",
+						"type": "String"
+					},
+					{
+						"name": "2000",
+						"type": "String"
+					},
+					{
+						"name": "2001",
+						"type": "String"
+					},
+					{
+						"name": "2002",
+						"type": "String"
+					},
+					{
+						"name": "2003",
+						"type": "String"
+					},
+					{
+						"name": "2004",
+						"type": "String"
+					},
+					{
+						"name": "2005",
+						"type": "String"
+					},
+					{
+						"name": "2006",
+						"type": "String"
+					},
+					{
+						"name": "2007",
+						"type": "String"
+					},
+					{
+						"name": "2008",
+						"type": "String"
+					},
+					{
+						"name": "2009",
+						"type": "String"
+					},
+					{
+						"name": "2010",
+						"type": "String"
+					},
+					{
+						"name": "2011",
+						"type": "String"
+					},
+					{
+						"name": "2012",
+						"type": "String"
+					},
+					{
+						"name": "2013",
+						"type": "String"
+					},
+					{
+						"name": "2014",
+						"type": "String"
+					},
+					{
+						"name": "2015",
+						"type": "String"
+					},
+					{
+						"name": "2016",
+						"type": "String"
+					},
+					{
+						"name": "2017",
+						"type": "String"
+					},
+					{
+						"name": "2018",
+						"type": "String"
+					},
+					{
+						"name": "2019",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Parquet1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "simpa2kcontainer"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/select_relevant_columns')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "Excel1",
+								"type": "DatasetReference"
+							},
+							"name": "source1"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "Parquet1",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [
+						{
+							"name": "Select1"
+						}
+					],
+					"script": "source(output(\n\t\t{Country Name} as string,\n\t\t{Country Code} as string,\n\t\t{Indicator Name} as string,\n\t\t{Indicator Code} as string,\n\t\t{1960} as string,\n\t\t{1961} as string,\n\t\t{1962} as string,\n\t\t{1963} as string,\n\t\t{1964} as string,\n\t\t{1965} as string,\n\t\t{1966} as string,\n\t\t{1967} as string,\n\t\t{1968} as string,\n\t\t{1969} as string,\n\t\t{1970} as string,\n\t\t{1971} as string,\n\t\t{1972} as string,\n\t\t{1973} as string,\n\t\t{1974} as string,\n\t\t{1975} as string,\n\t\t{1976} as string,\n\t\t{1977} as string,\n\t\t{1978} as string,\n\t\t{1979} as string,\n\t\t{1980} as string,\n\t\t{1981} as string,\n\t\t{1982} as string,\n\t\t{1983} as string,\n\t\t{1984} as string,\n\t\t{1985} as string,\n\t\t{1986} as string,\n\t\t{1987} as string,\n\t\t{1988} as string,\n\t\t{1989} as string,\n\t\t{1990} as string,\n\t\t{1991} as string,\n\t\t{1992} as string,\n\t\t{1993} as string,\n\t\t{1994} as string,\n\t\t{1995} as string,\n\t\t{1996} as string,\n\t\t{1997} as string,\n\t\t{1998} as string,\n\t\t{1999} as string,\n\t\t{2000} as string,\n\t\t{2001} as string,\n\t\t{2002} as string,\n\t\t{2003} as string,\n\t\t{2004} as string,\n\t\t{2005} as string,\n\t\t{2006} as string,\n\t\t{2007} as string,\n\t\t{2008} as string,\n\t\t{2009} as string,\n\t\t{2010} as string,\n\t\t{2011} as string,\n\t\t{2012} as string,\n\t\t{2013} as string,\n\t\t{2014} as string,\n\t\t{2015} as string,\n\t\t{2016} as string,\n\t\t{2017} as string,\n\t\t{2018} as string,\n\t\t{2019} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tignoreNoFilesFound: false) ~> source1\nsource1 select(mapColumn(\n\t\tcountry_name = {Country Name},\n\t\teach(match(regexMatch(name,'^19[0-9]{2}$')))\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1\nSelect1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'parquet',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Excel1')]",
+				"[concat(variables('factoryId'), '/datasets/Parquet1')]"
+			]
+		}
+	]
+}

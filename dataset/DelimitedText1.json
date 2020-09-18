@@ -18,6 +18,15 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "Data Source",
+				"type": "String"
+			},
+			{
+				"name": "World Development Indicators",
+				"type": "String"
+			}
+		]
 	}
 }

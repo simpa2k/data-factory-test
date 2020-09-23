@@ -1,0 +1,45 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "gdp_per_capita",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "children_out_of_school",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Parquet2",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Join1"
+				},
+				{
+					"name": "Select1"
+				},
+				{
+					"name": "Select2"
+				}
+			],
+			"script": "source(output(\n\t\t{Country Name} as string,\n\t\t{Country Code} as string,\n\t\t{Indicator Name} as string,\n\t\t{Indicator Code} as string,\n\t\t{1960} as string,\n\t\t{1961} as string,\n\t\t{1962} as string,\n\t\t{1963} as string,\n\t\t{1964} as string,\n\t\t{1965} as string,\n\t\t{1966} as string,\n\t\t{1967} as string,\n\t\t{1968} as string,\n\t\t{1969} as string,\n\t\t{1970} as string,\n\t\t{1971} as string,\n\t\t{1972} as string,\n\t\t{1973} as string,\n\t\t{1974} as string,\n\t\t{1975} as string,\n\t\t{1976} as string,\n\t\t{1977} as string,\n\t\t{1978} as string,\n\t\t{1979} as string,\n\t\t{1980} as string,\n\t\t{1981} as string,\n\t\t{1982} as string,\n\t\t{1983} as string,\n\t\t{1984} as string,\n\t\t{1985} as string,\n\t\t{1986} as string,\n\t\t{1987} as string,\n\t\t{1988} as string,\n\t\t{1989} as string,\n\t\t{1990} as string,\n\t\t{1991} as string,\n\t\t{1992} as string,\n\t\t{1993} as string,\n\t\t{1994} as string,\n\t\t{1995} as string,\n\t\t{1996} as string,\n\t\t{1997} as string,\n\t\t{1998} as string,\n\t\t{1999} as string,\n\t\t{2000} as string,\n\t\t{2001} as string,\n\t\t{2002} as string,\n\t\t{2003} as string,\n\t\t{2004} as string,\n\t\t{2005} as string,\n\t\t{2006} as string,\n\t\t{2007} as string,\n\t\t{2008} as string,\n\t\t{2009} as string,\n\t\t{2010} as string,\n\t\t{2011} as string,\n\t\t{2012} as string,\n\t\t{2013} as string,\n\t\t{2014} as string,\n\t\t{2015} as string,\n\t\t{2016} as string,\n\t\t{2017} as string,\n\t\t{2018} as string,\n\t\t{2019} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tignoreNoFilesFound: false) ~> source1\nsource(output(\n\t\t{Country Name} as string,\n\t\t{Country Code} as string,\n\t\t{Indicator Name} as string,\n\t\t{Indicator Code} as string,\n\t\t{1960} as string,\n\t\t{1961} as string,\n\t\t{1962} as string,\n\t\t{1963} as string,\n\t\t{1964} as string,\n\t\t{1965} as string,\n\t\t{1966} as string,\n\t\t{1967} as string,\n\t\t{1968} as string,\n\t\t{1969} as string,\n\t\t{1970} as string,\n\t\t{1971} as string,\n\t\t{1972} as string,\n\t\t{1973} as string,\n\t\t{1974} as string,\n\t\t{1975} as string,\n\t\t{1976} as string,\n\t\t{1977} as string,\n\t\t{1978} as string,\n\t\t{1979} as string,\n\t\t{1980} as string,\n\t\t{1981} as string,\n\t\t{1982} as string,\n\t\t{1983} as string,\n\t\t{1984} as string,\n\t\t{1985} as string,\n\t\t{1986} as string,\n\t\t{1987} as string,\n\t\t{1988} as string,\n\t\t{1989} as string,\n\t\t{1990} as string,\n\t\t{1991} as string,\n\t\t{1992} as string,\n\t\t{1993} as string,\n\t\t{1994} as string,\n\t\t{1995} as string,\n\t\t{1996} as string,\n\t\t{1997} as string,\n\t\t{1998} as string,\n\t\t{1999} as string,\n\t\t{2000} as string,\n\t\t{2001} as string,\n\t\t{2002} as string,\n\t\t{2003} as string,\n\t\t{2004} as string,\n\t\t{2005} as string,\n\t\t{2006} as string,\n\t\t{2007} as string,\n\t\t{2008} as string,\n\t\t{2009} as string,\n\t\t{2010} as string,\n\t\t{2011} as string,\n\t\t{2012} as string,\n\t\t{2013} as string,\n\t\t{2014} as string,\n\t\t{2015} as string,\n\t\t{2016} as string,\n\t\t{2017} as string,\n\t\t{2018} as string,\n\t\t{2019} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source2\nSelect1, Select2 join(gdp_CountryName == school_CountryName,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> Join1\nsource1 select(mapColumn(\n\t\teach(match(/* All input columns */ true()),\n\t\t\t/* Input name */  concat('gdp_', regexReplace($$, '[^a-zA-Z0-9]', '')) = $$)\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1\nsource2 select(mapColumn(\n\t\teach(match(/* All input columns */ true()),\n\t\t\t/* Input name */  concat('school_', regexReplace($$, '[^a-zA-Z0-9]', '')) = $$)\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select2\nJoin1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'parquet',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}

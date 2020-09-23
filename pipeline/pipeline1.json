@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "select_relevant_columns",
+				"name": "dataflow1",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "select_relevant_columns",
+						"referenceName": "dataflow1",
 						"type": "DataFlowReference"
 					},
 					"compute": {
@@ -24,6 +24,12 @@
 						"computeType": "General"
 					}
 				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": []
 			}
 		],
 		"annotations": []

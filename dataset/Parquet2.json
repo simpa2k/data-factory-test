@@ -1,8 +1,8 @@
 {
-	"name": "Parquet1",
+	"name": "Parquet2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage2",
+			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"folderPath": "joined",
 				"container": "simpa2kcontainer"
 			},
 			"compressionCodec": "snappy"

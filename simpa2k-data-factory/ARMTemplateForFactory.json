@@ -78,7 +78,7 @@
 								"type": "Expression"
 							},
 							"condition": {
-								"value": "@item().name.startsWith('gdp_per_capita') || @item().name.startsWith('children_out_of_school')",
+								"value": "or(@item().name.startsWith('gdp_per_capita'), @item().name.startsWith('children_out_of_school'))",
 								"type": "Expression"
 							}
 						}
@@ -97,7 +97,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"expression": {
-								"value": "@activity('FilterRequiredFiles').filteredItemCount = 2",
+								"value": "equals(@activity('FilterRequiredFiles').filteredItemCount, 2)",
 								"type": "Expression"
 							},
 							"ifTrueActivities": [

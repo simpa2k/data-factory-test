@@ -15,7 +15,7 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
 		},
-		"children_and_gdp_trigger_properties_typeProperties_scope": {
+		"gdp_and_children_trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/d5268f78-af9f-44c0-84f1-e257b4ca0f9e/resourceGroups/simpa2k-data-factory-test/providers/Microsoft.Storage/storageAccounts/simpa2kdatastorage"
 		}
@@ -861,12 +861,12 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/children_and_gdp_trigger')]",
+			"name": "[concat(parameters('factoryName'), '/gdp_and_children_trigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -881,7 +881,7 @@
 					"blobPathBeginsWith": "/simpa2kcontainer/blobs/",
 					"blobPathEndsWith": ".xlsx",
 					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('children_and_gdp_trigger_properties_typeProperties_scope')]",
+					"scope": "[parameters('gdp_and_children_trigger_properties_typeProperties_scope')]",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]

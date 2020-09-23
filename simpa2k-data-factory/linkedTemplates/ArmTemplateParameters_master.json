@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "simpa2k-data-factory"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"children_and_gdp_trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/d5268f78-af9f-44c0-84f1-e257b4ca0f9e/resourceGroups/simpa2k-data-factory-test/providers/Microsoft.Storage/storageAccounts/simpa2kdatastorage"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

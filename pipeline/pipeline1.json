@@ -69,7 +69,18 @@
 					"expression": {
 						"value": "@activity('FilterRequiredFiles').filteredItemCount = 2",
 						"type": "Expression"
-					}
+					},
+					"ifTrueActivities": [
+						{
+							"name": "Execute Pipeline1",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitOnCompletion": true
+							}
+						}
+					]
 				}
 			},
 			{

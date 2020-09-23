@@ -1,0 +1,19 @@
+{
+	"name": "children_and_gdp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "simpa2kcontainer"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}

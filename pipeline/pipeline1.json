@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "dataflow1",
-				"type": "ExecuteDataFlow",
+				"name": "GetFiles",
+				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
@@ -15,14 +15,81 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "dataflow1",
-						"type": "DataFlowReference"
+					"dataset": {
+						"referenceName": "children_and_gdp",
+						"type": "DatasetReference"
 					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
+					"fieldList": [],
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings"
 					}
+				}
+			},
+			{
+				"name": "FilterRequiredFiles",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "GetFiles",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('GetFiles').output.childItems",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@item().name = 'gdp_per_capita' || @item().name = 'children_out_of_school'",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "FilterRequiredFiles",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@activity('FilterRequiredFiles').filteredItemCount = 2",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "dataflow1",
+							"type": "ExecuteDataFlow",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataflow": {
+									"referenceName": "dataflow1",
+									"type": "DataFlowReference"
+								},
+								"compute": {
+									"coreCount": 8,
+									"computeType": "General"
+								}
+							}
+						}
+					]
 				}
 			}
 		],

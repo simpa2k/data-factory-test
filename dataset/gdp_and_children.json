@@ -1,0 +1,17 @@
+{
+	"name": "gdp_and_children",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "simpa2kcontainer"
+			}
+		}
+	}
+}

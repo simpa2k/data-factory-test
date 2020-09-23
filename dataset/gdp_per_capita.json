@@ -11,7 +11,7 @@
 			"sheetName": "Data",
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "API_NY.GDP.PCAP.CD_DS2_en_excel_v2_1345208.xlsx",
+				"fileName": "gdp_per_capita.xlsx",
 				"container": "simpa2kcontainer"
 			},
 			"firstRowAsHeader": true

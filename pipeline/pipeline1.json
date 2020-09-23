@@ -119,6 +119,12 @@
 									"referenceName": "children_out_of_school",
 									"type": "DatasetReference"
 								},
+								"logStorageSettings": {
+									"linkedServiceName": {
+										"referenceName": "AzureBlobStorage1",
+										"type": "LinkedServiceReference"
+									}
+								},
 								"enableLogging": true,
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
@@ -149,6 +155,12 @@
 								"dataset": {
 									"referenceName": "gdp_per_capita",
 									"type": "DatasetReference"
+								},
+								"logStorageSettings": {
+									"linkedServiceName": {
+										"referenceName": "AzureBlobStorage1",
+										"type": "LinkedServiceReference"
+									}
 								},
 								"enableLogging": true,
 								"storeSettings": {

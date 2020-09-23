@@ -14,10 +14,6 @@
 		"AzureBlobStorage2_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
-		},
-		"gdp_and_children_trigger_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/d5268f78-af9f-44c0-84f1-e257b4ca0f9e/resourceGroups/simpa2k-data-factory-test/providers/Microsoft.Storage/storageAccounts/simpa2kdatastorage"
 		}
 	},
 	"variables": {
@@ -858,37 +854,6 @@
 				"[concat(variables('factoryId'), '/datasets/gdp_per_capita')]",
 				"[concat(variables('factoryId'), '/datasets/children_out_of_school')]",
 				"[concat(variables('factoryId'), '/datasets/JoinedDataset')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/gdp_and_children_trigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipeline1",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/simpa2kcontainer/blobs/",
-					"blobPathEndsWith": ".xlsx",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('gdp_and_children_trigger_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipeline1')]"
 			]
 		}
 	]

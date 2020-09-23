@@ -8,6 +8,7 @@
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
+			"sheetName": "Data",
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "children_out_of_school.xlsx",

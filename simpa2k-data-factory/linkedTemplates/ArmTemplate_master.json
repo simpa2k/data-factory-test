@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
 		},
+		"gdp_and_children_trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/d5268f78-af9f-44c0-84f1-e257b4ca0f9e/resourceGroups/simpa2k-data-factory-test/providers/Microsoft.Storage/storageAccounts/simpa2kdatastorage"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -47,6 +51,9 @@
 					},
 					"AzureBlobStorage2_connectionString": {
 						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"gdp_and_children_trigger_properties_typeProperties_scope": {
+						"value": "[parameters('gdp_and_children_trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},

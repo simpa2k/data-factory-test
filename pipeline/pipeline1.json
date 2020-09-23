@@ -68,7 +68,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@activity('FilterRequiredFiles').filteredItemCount = 2",
+						"value": "equals(@activity('FilterRequiredFiles').filteredItemCount, 2)",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
